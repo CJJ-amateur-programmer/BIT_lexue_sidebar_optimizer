@@ -21,13 +21,14 @@
     function rewrite_sidebar(shown_courses){
         var node,
             current_id=(location.href.match(/(?<=id=)\w+/)||[])[0],
-            mycourses=document.querySelector('li:has([data-key="mycourses"])');
+            mycourses=document.querySelector('li:has([data-key="mycourses"])'),
+            sidebar_course_list=mycourses.parentNode;
         while(node=mycourses.nextSibling){
             node.parentNode.removeChild(node);
         }
         for(var i=0;i<shown_courses.length;i++){
             var classList=(current_id===shown_courses[i][0]?['list-group-item-action active active_tree_node ','font-weight-bold ']:['','']);
-            mycourses.innerHTML+=`<li>
+            sidebar_course_list.innerHTML+=`<li>
                         <a class="list-group-item list-group-item-action  ${classList[0]}" href="https://lexue.bit.edu.cn/course/view.php?id=${shown_courses[i][0]}" data-key="${shown_courses[i][0]}" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="">
                             <div class="ml-1">
                                 <div class="media">
