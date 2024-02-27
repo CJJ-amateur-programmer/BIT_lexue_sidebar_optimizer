@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         乐学侧边栏课程修改
-// @namespace    http://tampermonkey.net/
+// @namespace    lexue_sidebar_optimizer
 // @version      0.1
 // @description  修改侧边栏显示的课程
 // @author       CJJ
@@ -12,26 +12,29 @@
 // ==/UserScript==
 
 (async function() {
-    var node,
-        dragsrc=null,
+    var dragsrc=null,
         shown_courses=await GM_getValue('lexue_shown_courses'),
         hidden_courses=await GM_getValue('lexue_hidden_courses'),
         popup_cover=document.createElement("div"),
         popup=document.createElement("div");
     popup_cover.style="width:100%;height:100%;background-color:rgba(0,0,0,0.6);position:fixed;inset:0px;z-index:2000";
     function rewrite_sidebar(shown_courses){
-        while(node=document.querySelector("li:has([href*='lexue.bit.edu.cn/course/view.php?id='])")){
+        var node,
+            current_id=document.querySelector('[data-key="coursehome"]').href.match(/(?<=id=)\w+/)[0],
+            mycourses=document.querySelector('li:has([data-key="mycourses"])');
+        while(node=mycourses.nextSibling){
             node.parentNode.removeChild(node);
         }
         for(var i=0;i<shown_courses.length;i++){
-            document.querySelector('[data-key="mycourses"]').parentNode.parentNode.innerHTML+=`<li>
-                        <a class="list-group-item list-group-item-action  " href="https://lexue.bit.edu.cn/course/view.php?id=${shown_courses[i][0]}" data-key="${shown_courses[i][0]}" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="">
+            var classList=(current_id===shown_courses[i][0]?['list-group-item-action active active_tree_node ','font-weight-bold ']:['','']);
+            mycourses.innerHTML+=`<li>
+                        <a class="list-group-item list-group-item-action  ${classList[0]}" href="https://lexue.bit.edu.cn/course/view.php?id=${shown_courses[i][0]}" data-key="${shown_courses[i][0]}" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="">
                             <div class="ml-1">
                                 <div class="media">
                                         <span class="media-left">
                                             <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
                                         </span>
-                                    <span class="media-body ">${shown_courses[i][1]}</span>
+                                    <span class="media-body ${classList[1]}">${shown_courses[i][1]}</span>
                                 </div>
                             </div>
                         </a>
