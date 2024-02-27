@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         乐学侧边栏课程修改
-// @namespace    lexue_sidebar_optimizer
+// @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  修改侧边栏显示的课程
 // @author       CJJ
@@ -20,7 +20,7 @@
     popup_cover.style="width:100%;height:100%;background-color:rgba(0,0,0,0.6);position:fixed;inset:0px;z-index:2000";
     function rewrite_sidebar(shown_courses){
         var node,
-            current_id=document.querySelector('[data-key="coursehome"]').href.match(/(?<=id=)\w+/)[0],
+            current_id=(location.href.match(/(?<=id=)\w+/)||[])[0],
             mycourses=document.querySelector('li:has([data-key="mycourses"])');
         while(node=mycourses.nextSibling){
             node.parentNode.removeChild(node);
