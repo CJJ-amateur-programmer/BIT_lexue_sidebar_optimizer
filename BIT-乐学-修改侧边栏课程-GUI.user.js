@@ -4,15 +4,15 @@
 // @version      1.0.0
 // @description  修改侧边栏显示的课程
 // @license      GPL-3.0-or-later
-// @supportURL   https://github.com/YDX-2147483647/BIT-enhanced/issues
+// @supportURL   https://github.com/CJJ-amateur-programmer/BIT_lexue_sidebar_optimizer/issues
 // @author       CJJ
 // @match        *://lexue.bit.edu.cn/*
 // @icon         https://lexue.bit.edu.cn/theme/image.php/eguru/theme/1724573654/favicon
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
-// @downloadURL https://update.greasyfork.org/scripts/488788/BIT-%E4%B9%90%E5%AD%A6-%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AF%BE%E7%A8%8B-GUI.user.js
-// @updateURL https://update.greasyfork.org/scripts/488788/BIT-%E4%B9%90%E5%AD%A6-%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AF%BE%E7%A8%8B-GUI.meta.js
+// @downloadURL https://github.com/CJJ-amateur-programmer/BIT_lexue_sidebar_optimizer/raw/refs/heads/main/BIT-%E4%B9%90%E5%AD%A6-%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AF%BE%E7%A8%8B-GUI.user.js
+// @updateURL https://github.com/CJJ-amateur-programmer/BIT_lexue_sidebar_optimizer/raw/refs/heads/main/BIT-%E4%B9%90%E5%AD%A6-%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AF%BE%E7%A8%8B-GUI.user.js
 // ==/UserScript==
 
 (async function () {
@@ -20,6 +20,8 @@
   /* global GM_getValue */
   /* global GM_setValue */
   /* global GM_registerMenuCommand */
+  /* global M */ //provided by lexue
+
   let dragsrc = null
   let shown_courses = await GM_getValue('lexue_shown_courses') || []
   let hidden_courses = await GM_getValue('lexue_hidden_courses') || []
