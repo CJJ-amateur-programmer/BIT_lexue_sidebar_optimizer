@@ -1,5 +1,6 @@
 <h3>使用请参考：</h3><br>
-<a href="https://github.com/CJJ-amateur-programmer/Detect_BIT_OJ_getchar">https://github.com/CJJ-amateur-programmer/Detect_BIT_OJ_getchar</a>
+<a href="https://github.com/CJJ-amateur-programmer/Detect_BIT_OJ_getchar">https://github.com/CJJ-amateur-programmer/Detect_BIT_OJ_getchar</a><br>
+<a href="https://github.com/YDX-2147483647/BIT-enhanced/blob/main/TamperMonkey/BIT-%E4%B9%90%E5%AD%A6-%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AF%BE%E7%A8%8B-GUI.md">https://github.com/YDX-2147483647/BIT-enhanced/blob/main/TamperMonkey/BIT-乐学-修改侧边栏课程-GUI.md</a>
 <br><br>
 <h3>简介</h3><br>
   <p>
